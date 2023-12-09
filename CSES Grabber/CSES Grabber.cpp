@@ -31,7 +31,7 @@ int main()
 	std::vector<std::string> probnames(300);
 	for(int i=0;i<300;i++)std::getline(fin, probnames[i]);
 	int repeat = 0;
-	for(int i=1;i<=300;i++)
+	for(int i=0;i<300;i++)
 	{
 		std::string probname = probnames[i];
 		std::cout << "Downloading submission history for " << probname << '\n';
