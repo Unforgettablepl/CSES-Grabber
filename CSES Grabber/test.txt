@@ -1,6 +1,0 @@
-2023-07-12 11:45:42 Accepted 1068 Weird Algorithm
-2023-07-12 11:48:06 Accepted 1083 Missing Number
-2023-07-12 11:50:32 Accepted 1069 Repetitions
-2023-07-12 11:54:37 Accepted 1094 Increasing Array
-2023-07-12 12:02:03 Wrong answer 1070 Permutations
-2023-07-12 12:02:43 Accepted 1070 Permutations
