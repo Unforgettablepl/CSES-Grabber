@@ -30,12 +30,17 @@ std::vector<Log> Network::get(int id, std::string probname, std::string login_id
 		std::cerr << "Curl error: " << curl_easy_strerror(res) << '\n';
 		exit(-1);
 	}
-	int curr_parse = html.find("Your submissions");
+	int curr_parse = html.find("submissions");
 	if(curr_parse == std::string::npos)
 	{
 		throw std::runtime_error("Logged Out");
 	}
 	std::vector<Log> ans;
+	curr_parse = html.find("Your submissions");
+	if(curr_parse == std::string::npos)
+	{
+		return ans;
+	}
 	while(true)
 	{
 		curr_parse = html.find("result", curr_parse);

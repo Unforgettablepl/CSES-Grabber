@@ -30,7 +30,6 @@ int main()
 	std::vector<Log> logs;
 	std::vector<std::string> probnames(300);
 	for(int i=0;i<300;i++)std::getline(fin, probnames[i]);
-	int repeat = 0;
 	for(int i=0;i<300;i++)
 	{
 		std::string probname = probnames[i];
@@ -41,22 +40,12 @@ int main()
 			probname = probname.substr(probname.find(' ') + 1);
 			std::vector<Log> log = network.get(id, probname, login_id);
             logs.insert(logs.end(), log.begin(), log.end());
-			repeat = 0;
 		}
 		catch(std::runtime_error&e)
 		{
-			repeat++;
 			std::cout << e.what() << '\n';
-			if (repeat == 6)
-			{
-				std::cout << "Failed to download after 5 attempts.\n";
-				std::cout << "Enter Login ID again: ";
-				std::cin >> login_id;
-				i--;
-				continue;
-			}
-			std::cout << "Waiting for " << pow(2,repeat) << "s\n";
-            std::this_thread::sleep_for(std::chrono::seconds(int(pow(2,repeat))));
+			std::cout << "Enter Login ID again: ";
+			std::cin >> login_id;
 			i--;
 		}
 	}
